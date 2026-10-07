@@ -1,0 +1,184 @@
+% =============================================================================
+%  WORLD-33 -- NASA TechRise Student Challenge 2023-24
+%  Experiment proposal, as submitted (December 2023), typeset in LaTeX.
+%
+%  The wording is unchanged from the submitted proposal; only layout and
+%  typography differ. Compile with pdflatex (works on Overleaf as-is):
+%      pdflatex world33_proposal.tex   (run twice for page references)
+% =============================================================================
+\documentclass[11pt,letterpaper]{article}
+
+% ---- Page and fonts ---------------------------------------------------------
+\usepackage[letterpaper,margin=1in,headheight=14pt,headsep=18pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}                          % body: Bitstream Charter
+\usepackage[scaled=0.92]{helvet}              % headings: Helvetica
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage[version=4]{mhchem}                % \ce{CO2}, \ce{O3}, ...
+\usepackage{siunitx}
+\sisetup{mode=text,group-separator={,},group-minimum-digits=4}
+
+% ---- Layout helpers ---------------------------------------------------------
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F3A5F}            % deep navy
+\definecolor{muted}{HTML}{5A6270}
+\definecolor{rule}{HTML}{C9CED6}
+\definecolor{tint}{HTML}{F2F4F7}
+
+\hypersetup{
+  pdftitle  = {WORLD-33 NASA TechRise Proposal},
+  pdfauthor = {Team WORLD-33, Montgomery High School Aerospace Club},
+  pdfsubject= {NASA TechRise Student Challenge 2023-24 experiment proposal},
+  colorlinks=true, urlcolor=accent, linkcolor=accent
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\linespread{1.08}
+
+% Section headings: small numbered sans-serif headings with a hairline rule
+\titleformat{\section}
+  {\sffamily\bfseries\large\color{accent}}
+  {\thesection}{0.75em}{}[{\color{rule}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{1.6em}{0.7em}
+
+\titleformat{\subsection}
+  {\sffamily\bfseries\normalsize\color{accent}}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.3em}
+
+\setlist[itemize]{leftmargin=1.4em,itemsep=0.35em,topsep=0.2em,label={\color{accent}\textbullet}}
+\setlist[enumerate]{leftmargin=1.6em,itemsep=0.35em,topsep=0.2em}
+
+% Running header / footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\sffamily\footnotesize\color{muted}NASA TechRise Student Challenge 2023--24}
+\fancyhead[R]{\sffamily\footnotesize\color{muted}Team WORLD-33 \textbullet{} Experiment Proposal}
+\fancyfoot[C]{\sffamily\footnotesize\color{muted}\thepage\ of \pageref*{LastPage}}
+\fancypagestyle{first}{%
+  \fancyhf{}
+  \fancyfoot[C]{\sffamily\footnotesize\color{muted}\thepage\ of \pageref*{LastPage}}}
+
+% Highlight box for the hypothesis
+\newtcolorbox{keybox}[1]{%
+  enhanced, breakable,
+  colback=tint, colframe=tint,
+  borderline west={2.5pt}{0pt}{accent},
+  arc=0pt, outer arc=0pt,
+  left=12pt, right=12pt, top=8pt, bottom=8pt,
+  fonttitle=\sffamily\bfseries\small, coltitle=accent,
+  title={#1}, attach title to upper={\par\smallskip}}
+
+% =============================================================================
+\begin{document}
+\thispagestyle{first}
+
+% ---- Title block --------------------------------------------------------------
+{\sffamily\small\bfseries\color{accent}\MakeUppercase{NASA TechRise Student Challenge \textbullet{} 2023--24}}
+
+\vspace{0.4em}
+{\sffamily\bfseries\fontsize{24}{28}\selectfont NASA TechRise Proposal\par}
+
+\vspace{0.3em}
+{\large\color{muted}UV Absorption of Different Gasses and Compositions\par}
+
+\vspace{1.1em}
+{\color{rule}\rule{\linewidth}{0.6pt}}
+
+\vspace{-0.2em}
+{\sffamily\small
+\begin{tabularx}{\linewidth}{@{}>{\color{muted}}l X >{\color{muted}}l l@{}}
+Team    & WORLD-33                                   & Vehicle   & Weather Balloon \\[2pt]
+School  & Montgomery High School Aerospace Club      & Budget    & \$1500 \\[2pt]
+\end{tabularx}}
+
+\vspace{-0.6em}
+{\color{rule}\rule{\linewidth}{0.6pt}}
+
+% ---- 1. Objective -------------------------------------------------------------
+\section{Experiment Objective}
+
+We propose an experiment to address the following question: \emph{What combination of Carbon Dioxide, Nitrogen Dioxide, and Ozone most effectively absorbs UV radiation?} We have gathered relevant information from credible sources regarding the elements involved in this experiment, which is outlined below.
+
+\begin{itemize}
+  \item Ozone absorbs the majority of the radiation in our stratosphere and is formed when an oxygen atom is split into 2 oxygen atoms through UV radiation and then bonds to other oxygen atoms to naturally create ozone.
+  \item With approximately a \num{3280}-foot increase in altitude, UV levels will increase by approximately 10 percent.
+  \item The ozone layer, Earth's sunscreen, absorbs about 98 percent of this devastating UV light.
+  \item Ozone is good at trapping ultraviolet radiation, or UV light, which can penetrate organisms' protective layers, like skin.
+\end{itemize}
+
+\begin{keybox}{Hypothesis}
+We hypothesize that by sending the balloon seventy thousand feet above ground level, we predict to see:
+\begin{enumerate}[label=\arabic*.,leftmargin=1.4em,topsep=0.3em]
+  \item Higher densities of air in the atmosphere usually correlate to higher levels of UV absorption.
+\end{enumerate}
+\end{keybox}
+
+% ---- 2. Design ----------------------------------------------------------------
+\section{Experimental Design}
+
+Our goals for this experiment design is to collect and store data from our 6 sensors in a reliable and safe way. Another goal for this experiment design is to make sure that our sensors work in temperatures from \SIrange{-20}{50}{\celsius}. Our last goal is to make sure our systems have consistency and do not fail at high altitude from problems such as short circuit.
+
+We will use a PCB layout that not only maximizes space efficiency but also ensures good operation of our sensors and data storage systems throughout the entire mission.
+
+\subsection{Thermal}
+For the temperature constraint we will use insulation to maintain the sensors within the working temperature range of \SI{-20}{\celsius} to \SI{50}{\celsius}, to make sure there are no effects on data collection due to varying temperatures at high altitudes.
+
+\subsection{Software}
+In terms of software, our system will focus on collecting sensor data and continuously monitoring for massive inconsistencies in the data. By monitoring the data we can find irregularities and incorporate a system that alerts us of the massive irregularities at the end of the run. We will incorporate corrective measures in software to detect the issue and try to fix it self.
+
+Overall our design pushes to collect reliable and consistent data for more accurate statistical analysis. By using different systems to keep everything safe and in working order, we are able to decrease the percentage of likely failures and high altitude.
+
+% ---- 3. Materials -------------------------------------------------------------
+\section{Required Materials}
+
+\begin{center}
+\sffamily\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{0.86\linewidth}{@{}X l r@{}}
+\toprule
+\textbf{Material} & \textbf{Manufacturer} & \textbf{Amount} \\
+\midrule
+Nitrogen Dioxide (\ce{NO2}) Sensor      & \href{https://www.dfrobot.com/product-2515.html}{DFRobot} & 1 \\
+Ultraviolet (UV) Radiation Sensor       & \href{https://www.adafruit.com/product/1918}{Adafruit}   & 1 \\
+Carbon Dioxide (\ce{CO2})               & \href{https://www.adafruit.com/product/5190}{Adafruit}   & 1 \\
+Ozone (\ce{O3}) Sensor                  & \href{https://store-usa.arduino.cc/products/gravity-i2c-ozone-sensor-0-10ppm?selectedStore=us}{Arduino} & 1 \\
+Micro SD Card Reader/Writer             & \href{https://www.adafruit.com/product/254}{Adafruit}    & 1 \\
+Micro SD Card                           & \href{https://www.adafruit.com/product/1294}{Adafruit}   & 1 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+% ---- 4. Execution -------------------------------------------------------------
+\section{Execution of the Experiment}
+
+Our plan involves launching a balloon and collecting gas concentration measurements at various altitudes. We aim to collect data on three main gasses which are: nitrogen dioxide, ozone, and carbon dioxide. Our project will utilize various sensors to collect data on the different gasses, along with collecting data on UV radiation every \num{1000} feet 300 times, so we will collect data approximately \num{21000} times. Data will be collected at altitudes between \SI{15}{km} and \SI{30}{km} from ground level which is where the ozone layer can be found. We plan to identify the physical properties of the gasses beforehand since the sensors in our budget cannot differentiate between the gasses. These properties will be used to differentiate between the 3 gasses we want to collect data on.
+
+The properties that distinguish all three gasses are their densities. Ozone at a density of \SI{2.144}{g/L}, Nitrogen with a density of \SI{1.25}{g/L}, and \ce{CO2} with a density of \SI{1.98}{g/L}. The sensors differentiate between the gasses using their densities.
+
+The next step is organizing our data and using our data effectively. A classic choice would be to graph our data and find a relationship between the UV radiation and the composition of the gasses. The different altitudes will allow us to collect data from varying gas compositions, and they will also help us monitor the level of UV radiation at those levels. Through this process, the data will allow us to find a relationship between the two categories.
+
+This relationship will then be modeled by a best fit. Using the best fit, we can derive an equation to represent it. Since we are looking at the 3 main gasses in the atmosphere, we can make several 2-dimensional graphs and 3-dimensional graphs.
+
+% ---- 5. Relevance -------------------------------------------------------------
+\section{Relevance of the Experiment}
+
+It is important to understand how the composition of our atmosphere affects things like radiation to understand our atmosphere better and to emphasize this to future generations. We can also utilize our data to predict the effect of UV radiation in certain areas of the atmosphere. Moreover, we can understand the gasses that protect our lives from UV rays and also understand how to prepare other planets to be able to sustain life. Our everyday lives depend on these gasses and learning more about their operations in the atmosphere can dictate the creation of new ideas and innovation.
+
+In addition to studying the effects of these gasses on radiation, it is also important to know their importance to life on Earth considering these gasses deal with more than just radiation. One of the main reasons carbon dioxide is important to the well-being of the Earth is that it is crucial to maintaining the perfect temperature. Carbon dioxide is a greenhouse gas that prevents too much heat from escaping the atmosphere. Without carbon dioxide, the Earth would be a cold and desolate planet. Similarly, nitrogen is equally important to life on Earth but for a different reason. Without nitrogen, there would be little to no life on Earth since it is an essential component of building blocks, like proteins. Unlike carbon dioxide and nitrogen, the main purpose of ozone is to prevent harmful ultraviolet radiation from reaching Earth. If there was no ozone to protect us, most plant and animal life would be endangered by the harmful diseases and illnesses the radiation would cause. Although these gasses deal with ultraviolet radiation, they all have their own jobs that support life on Earth. By sending up our payload we can better study our atmosphere and come up with methods to preserve life for future generations.
+
+\end{document}

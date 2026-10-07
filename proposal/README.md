@@ -1,6 +1,16 @@
 # Proposal
 
-[`world33_proposal_original.pdf`](world33_proposal_original.pdf) is the proposal **exactly as our team submitted it** to the NASA TechRise Student Challenge (December 2023). The text below is a word-for-word transcription so it's readable on GitHub. We left it unedited on purpose; what we would change now is in the reflection section of the [results](../results/).
+The experiment proposal our team submitted to the NASA TechRise Student Challenge (December 2023).
+
+| File | What it is |
+|---|---|
+| [`world33_proposal.pdf`](world33_proposal.pdf) | **Start here.** The proposal typeset in LaTeX for readability. |
+| [`latex/world33_proposal.tex`](latex/world33_proposal.tex) | LaTeX source for the PDF above. It compiles with `pdflatex` or on Overleaf. |
+| [`world33_proposal_original.pdf`](world33_proposal_original.pdf) | The original Google Docs export, exactly as submitted. |
+
+The typeset version keeps the submitted wording unchanged. Only the layout, typography and unit formatting differ. We left the content unedited on purpose; what we would change now is in the reflection section of the [results](../results/).
+
+The text below is the same proposal transcribed so it's readable directly on GitHub.
 
 ---
 

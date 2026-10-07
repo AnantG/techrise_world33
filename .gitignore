@@ -8,3 +8,10 @@ __pycache__/
 # Editor
 .vscode/
 .idea/
+# LaTeX build files
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
