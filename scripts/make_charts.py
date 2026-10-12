@@ -17,35 +17,15 @@ DATA = ROOT / "results" / "data" / "world33_flight_data.csv"
 OUT = ROOT / "results" / "charts"
 OUT.mkdir(parents=True, exist_ok=True)
 
-BLUE = "#2a78d6"
-INK = "#0b0b0b"
-INK_2 = "#52514e"
-GRID = "#e4e3df"
-BAND = "#f0efec"
+BLUE = "C0"          # matplotlib's default first color
+BAND = "0.9"         # light gray for the float band
 
 LAUNCH_SITE_ALT_M = 1400   # anything above this is "off the ground"
 FLOAT_ALT_M = 23000        # float altitude threshold used for shading
 
-plt.rcParams.update({
-    "font.family": "DejaVu Sans",
-    "font.size": 10,
-    "axes.edgecolor": GRID,
-    "axes.labelcolor": INK_2,
-    "axes.titlecolor": INK,
-    "axes.titlesize": 11,
-    "axes.titleweight": "bold",
-    "axes.titlelocation": "left",
-    "xtick.color": INK_2,
-    "ytick.color": INK_2,
-    "axes.grid": True,
-    "grid.color": GRID,
-    "grid.linewidth": 0.8,
-    "axes.spines.top": False,
-    "axes.spines.right": False,
-    "figure.facecolor": "white",
-    "axes.facecolor": "white",
-    "savefig.dpi": 160,
-})
+matplotlib.rcdefaults()
+plt.rcParams["font.family"] = "DejaVu Sans"
+plt.rcParams["savefig.dpi"] = 160
 
 d = pd.read_csv(DATA)
 # One telemetry packet came through as all zeros (altitude/lat/lon = 0); drop it for plotting.
@@ -69,8 +49,8 @@ ax.plot(d.hours, d.altitude_km, color=BLUE, lw=2)
 peak = d.loc[d.altitude_m.idxmax()]
 ax.annotate(f"Peak {peak.altitude_km:.1f} km",
             xy=(peak.hours, peak.altitude_km), xytext=(peak.hours + 0.4, peak.altitude_km - 4),
-            color=INK, arrowprops=dict(arrowstyle="-", color=INK_2, lw=0.8))
-ax.text((float_start + float_end) / 2, 2.5, "float (> 23 km)", ha="center", color=INK_2)
+            arrowprops=dict(arrowstyle="-", lw=0.8))
+ax.text((float_start + float_end) / 2, 2.5, "float (> 23 km)", ha="center")
 ax.set_title("WORLD-33 flight profile")
 ax.set_xlabel("Time since balloon telemetry start (hours)")
 ax.set_ylabel("Altitude (km)")
@@ -88,7 +68,7 @@ panels = [
     ("co2_ppm", "CO2 (ppm)"),
     ("no2_ppm", "NO2 (ppm)"),
 ]
-fig, axes = plt.subplots(3, 2, figsize=(10, 8), sharex=True)
+fig, axes = plt.subplots(3, 2, figsize=(10, 8.5), sharex=True)
 for ax, (col, title) in zip(axes.flat, panels):
     shade_float(ax)
     ax.scatter(d.hours, d[col], s=2, color=BLUE, lw=0)
@@ -96,7 +76,7 @@ for ax, (col, title) in zip(axes.flat, panels):
 for ax in axes[-1]:
     ax.set_xlabel("Hours since telemetry start")
 fig.suptitle("Sensor readings across the flight (gray band = float above 23 km)",
-             x=0.01, ha="left", color=INK, fontsize=12, fontweight="bold")
+             fontsize=12)
 fig.tight_layout()
 fig.savefig(OUT / "sensors_over_time.png")
 plt.close(fig)
