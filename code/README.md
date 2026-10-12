@@ -4,12 +4,10 @@ All code targets the **Adafruit Metro M4 Express** connected to the TechRise **P
 
 | Folder | File | What it is | Author |
 |---|---|---|---|
-| `flight-prototype/` | `WORLD33_code.py` | Our CircuitPython flight loop from the electronics-prototype stage: reads balloon telemetry, detects flight-phase changes, and appends each packet to `/sd/WORLD.txt` on the microSD card. | Team WORLD-33 |
-| `flight-prototype/` | `worldview_lib.py` | Telemetry parser for the World View data stream. | Future Engineers starter library, **modified by Team WORLD-33** (see below) |
+| `flight/` | `WORLD33_code.py` | Our CircuitPython flight loop: reads balloon telemetry, detects flight-phase changes, and appends each packet to `/sd/WORLD.txt` on the microSD card. | Team WORLD-33 |
+| `flight/` | `worldview_lib.py` | Telemetry parser for the World View data stream. | Future Engineers starter library, **modified by Team WORLD-33** (see below) |
 | `arduino-demo/` | `worldview.ino` | Arduino version of the telemetry demo, used while we were comparing Arduino with CircuitPython. | Future Engineers demo, **modified by Team WORLD-33** (GO LED blink logic) |
 | `component-tests/` | `SDIO_code.py` | Test that writes "Hello World!" to the microSD breakout every 2 s, used to verify SD wiring before integrating it. | Adafruit example (MIT) |
-
-> **Note:** this folder holds the prototype code. The final flight code, which read the six environmental sensors, is not included yet.
 
 ## What we changed in the Future Engineers library
 

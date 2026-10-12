@@ -13,10 +13,10 @@ Team **WORLD-33** from the Montgomery High School Aerospace Club was selected fo
 
 | Folder | Contents |
 |---|---|
-| [`proposal/`](proposal/) | Our original proposal (PDF, as submitted) and a readable transcription |
+| [`proposal/`](proposal/) | Our proposal typeset in LaTeX (PDF and source), the original as submitted, and a text version |
 | [`hardware/`](hardware/) | Bill of materials, wiring diagrams, budget and power checks |
 | [`code/`](code/) | CircuitPython flight code, the modified telemetry library, and component tests |
-| [`results/`](results/) | Raw flight data (CSV), charts, our 2024 post-flight analysis, and notes from re-reading the data |
+| [`results/`](results/) | Raw flight data (CSV), charts, our 2024 post-flight analysis and its original graphs, and notes from re-reading the data |
 | [`media/`](media/) | Payload photos and showcase slides |
 | [`scripts/`](scripts/) | Python script that regenerates every chart from the raw data |
 
@@ -50,7 +50,7 @@ The electronics mount on a 3D-printed insert inside the TechRise flight box. Det
 
 ## Team
 
-Sri U., Jerry Q., Anant G., Aayush A., Chaitanya B., Pranav R., Ranvir S., Karthik P.
+Sri Undavalli, Jerry Qiu, Anant Grover, Aayush Aggarwal, Chaitanya Ballari, Pranav Rao, Ranvir Singh, Karthik Pakanati
 Team lead teacher: Mr. Lee
 
 ## Acknowledgments
@@ -62,7 +62,7 @@ Team lead teacher: Mr. Lee
 
 ## License
 
-- **Our code** (`code/flight-prototype/WORLD33_code.py`, `scripts/`): [MIT](LICENSE)
+- **Our code** (`code/flight/WORLD33_code.py`, `scripts/`): [MIT](LICENSE)
 - **Documents, data, charts and photos:** [CC BY 4.0](LICENSE-docs.md)
 - **Third-party code** keeps its original terms: the Future Engineers files in `code/` and the Adafruit example (MIT). See [`code/README.md`](code/README.md).
 
