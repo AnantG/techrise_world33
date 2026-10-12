@@ -26,7 +26,12 @@ Our team submitted this analysis to TechRise in 2024. It's reproduced word for w
 
 > The goal of our experiment was to find any possible correlation between different gasses and their absorption of UV radiation. Our prediction was that the gasses with the highest densities will absorb more UV radiation than less dense gasses, in addition to the fact that some gasses may have more of an effect on it than others due to their nature. Our experiment yielded the expected result that more ozone particles results in greater UV absorption. At the same time we realized during our analysis that if there was a relationship between any of the components of the atmosphere and UV radiation, our graphs would reflect it as if the UV was getting affected by the measured gas whereas in reality it would be effected by something else entirely. We found a general trend between gasses and UV as the ppm of the gasses increased, the level of UVS suddenly decreased in the graph. When the ppm of the gas was near zero, the UVS where concentrated toward the higher spectrum of the graph. Overall, we were hoping to see a clear cut relationship between the gasses and the UV absorption but in fact a major flaw prevented us from observing one.
 
-**Trends we reported:**
+**Trends we reported** (our original 2024 graphs, made in Google Sheets):
+
+| UV vs CO₂ | UV vs ozone | UV vs NO₂ |
+|---|---|---|
+| ![2024 UV vs CO2](charts/2024/uv_vs_co2_2024.png) | ![2024 UV vs ozone](charts/2024/uv_vs_ozone_2024.png) | ![2024 UV vs NO2](charts/2024/uv_vs_no2_2024.png) |
+
 - **CO₂:** As CO₂ concentration increases, UV follows a decreasing trend.
 - **Ozone:** As ozone concentration increases, UV follows a decreasing trend, which supports the idea that higher ozone concentrations reduce UV radiation.
 - **NO₂:** UV doesn't change with NO₂ concentration in any pattern, which suggests NO₂ doesn't affect UV radiation.
@@ -42,7 +47,7 @@ Our team submitted this analysis to TechRise in 2024. It's reproduced word for w
 Going back through the raw data turned up several things that the 2024 analysis didn't account for. The charts on this page take them into account.
 
 1. **Correlation is not causation, and altitude is the confounder.** UV, gas readings, temperature and humidity all change with altitude and time of day. A UV-vs-gas scatter plot can show a trend even if the gas has no effect on UV. Our 2024 reflection already pointed at this ("in reality it would be effected by something else entirely").
-2. **The CO₂ sensor stopped reporting at altitude.** CO₂ reads exactly 0 for 2,837 rows, from about 9.8 km on ascent until early in the descent. That most likely means the sensor stopped returning valid readings at low pressure, not that there was zero CO₂ up there. Those zeros are the vertical stripe at CO₂ = 0 in the 2024 UV-vs-CO₂ chart, and they drive most of its apparent trend. The chart below removes them.
+2. **The CO₂ sensor stopped reporting at altitude.** CO₂ reads exactly 0 for 2,837 rows, from about 9.8 km on ascent until early in the descent. That most likely means the sensor stopped returning valid readings at low pressure, not that there was zero CO₂ up there. Those zeros are the vertical stripe at CO₂ = 0 in the [2024 UV-vs-CO₂ chart](charts/2024/uv_vs_co2_2024.png), and they drive most of its apparent trend. The chart below removes them.
 3. **The ozone values are most likely in ppb, not ppm.** The spreadsheet labeled the column "ppm", but the sensor's range is 0–10 ppm and the logged values run from 20 to 982. That fits ppb, which is the unit the DFRobot ozone library reports. The CSV keeps the raw values and calls the column `ozone_raw`.
 4. **The NO₂ readings are coarse.** They take only seven values (0, 0.04, 0.13, … 0.53 ppm) because of the sensor's resolution. That's why the NO₂ scatter plot is vertical stripes.
 5. **The ambient-light channel saturates.** ALS peaks at 65,535, the maximum of a 16-bit value, so the brightest readings are clipped.
